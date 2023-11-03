@@ -10,7 +10,9 @@ function NoteAppBody({ addNote, notes, onDelete, onArchive, onSearch }) {
     <div className="note-app__body">
       <NoteInput addNote={addNote} />
       <h2>Catatan Aktif</h2>
-      <NoteList notes={filteredNotes} onDelete={onDelete} onArchive={onArchive} />
+      <NoteList notes={filteredNotes.filter((note) => note.archived == false)} onDelete={onDelete} onArchive={onArchive} />
+      <h2>Arsip</h2>
+      <NoteList notes={filteredNotes.filter((note) => note.archived == true)} onDelete={onDelete} onArchive={onArchive} />
     </div>
   );
 }

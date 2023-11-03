@@ -13,7 +13,6 @@ class NoteSearch extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    // console.log(this.state)
     if (this.state.titleQuery !== prevState.titleQuery){
       this.props.searchNote(this.state);
     }

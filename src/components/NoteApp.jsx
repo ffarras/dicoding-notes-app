@@ -14,6 +14,7 @@ class NoteApp extends React.Component {
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onSearchHandler = this.onSearchHandler.bind(this);
+    this.onArchiveHandler = this.onArchiveHandler.bind(this);
   }
 
   onDeleteHandler(id) {
@@ -42,6 +43,15 @@ class NoteApp extends React.Component {
     });
   }
 
+  onArchiveHandler(id) {
+    const targetNote = this.state.notes.find((note) => note.id === id);
+    targetNote.archived == false
+      ? (targetNote.archived = true)
+      : (targetNote.archived = false);
+    const notes = this.state.notes;
+    this.setState({ notes });
+  }
+
   render() {
     return (
       <section className="note-app">
@@ -51,6 +61,7 @@ class NoteApp extends React.Component {
           addNote={this.onAddNoteHandler}
           onDelete={this.onDeleteHandler}
           onSearch={this.state.searchQuery}
+          onArchive={this.onArchiveHandler}
         />
       </section>
     );

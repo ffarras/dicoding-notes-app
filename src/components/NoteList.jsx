@@ -2,10 +2,10 @@ import React from "react";
 import NoteItem from "./Item/NoteItem";
 
 function NoteList({ notes, onDelete, onArchive }) {
-  if (notes.length > 0) {
-    return (
-      <div className="notes-list">
-        {notes.map((note) => (
+  return (
+    <div className="notes-list">
+      {notes.length > 0 ? (
+        notes.map((note) => (
           <NoteItem
             key={note.id}
             id={note.id}
@@ -13,11 +13,12 @@ function NoteList({ notes, onDelete, onArchive }) {
             onArchive={onArchive}
             {...note}
           />
-        ))}
-      </div>
-    );
-  }
-  return <div className="notes-list">Tidak Ada Catatan</div>;
+        ))
+      ) : (
+        <div>Tidak Ada Catatan</div>
+      )}
+    </div>
+  );
 }
 
 export default NoteList;
