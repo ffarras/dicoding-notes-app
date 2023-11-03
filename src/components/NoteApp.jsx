@@ -1,7 +1,6 @@
 import React from "react";
 import { getInitialData, showFormattedDate } from "../utils";
 import NoteAppHeader from "./NoteAppHeader";
-import NoteInput from "./NoteInput";
 import NoteAppBody from "./NoteAppBody";
 
 class NoteApp extends React.Component {
@@ -9,6 +8,7 @@ class NoteApp extends React.Component {
     super(props);
     this.state = {
       notes: getInitialData(),
+      searchQuery: "",
     };
 
     this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
@@ -22,28 +22,7 @@ class NoteApp extends React.Component {
   }
 
   onSearchHandler({ titleQuery }) {
-    let filteredNotes = [];
-    const data = this.state.notes;
-    console.log(titleQuery);
-
-    for (let i = 0; i < data.length; i++) {
-      console.log(data[i].title);
-      if (data[i].title.includes(titleQuery)) {
-        filteredNotes.push(data[i]);
-      }
-    }
-    if (titleQuery == '') {
-      filteredNotes =  getInitialData();
-    }
-
-    console.log(filteredNotes);
-    // const filteredNotes = titleQuery !== ""
-    // ? this.state.notes.filter((note) =>
-    //     note.title.toLowerCase().includes(titleQuery.toLowerCase())
-    //   )
-    // : getInitialData();
-
-    this.setState({ notes: filteredNotes });
+    this.setState({ searchQuery: titleQuery });
   }
 
   onAddNoteHandler({ title, body }) {
@@ -71,6 +50,7 @@ class NoteApp extends React.Component {
           notes={this.state.notes}
           addNote={this.onAddNoteHandler}
           onDelete={this.onDeleteHandler}
+          onSearch={this.state.searchQuery}
         />
       </section>
     );
