@@ -17,19 +17,18 @@ class NoteInput extends React.Component {
   }
 
   onTitleChangeEventHandler(event) {
-    this.setState(() => {
-      return {
+    const count = -(event.target.value.length - 50);
+    if (count >= 0) {
+      this.setState({
         title: event.target.value,
-        count: -(event.target.value.length - 50),
-      };
-    });
+        count: count,
+      });
+    }
   }
 
   onBodyChangeEventHandler(event) {
-    this.setState((previousState) => {
-      return {
-        body: event.target.value,
-      };
+    this.setState({
+      body: event.target.value,
     });
   }
 
@@ -43,7 +42,7 @@ class NoteInput extends React.Component {
       <div className="note-input">
         <h2>Buat Catatan</h2>
         <form onSubmit={this.onSubmitEventHandler}>
-          <NoteTitleCharCount count={this.state.count}/>
+          <NoteTitleCharCount count={this.state.count} />
           <input
             type="text"
             placeholder="Masukkan judul"
