@@ -12,7 +12,7 @@ function NoteItem({
   archived,
 }) {
   return (
-    <article className="note-item">
+    <article className="flex flex-col border-solid border border-neutral-200/40 rounded-xl p-4 bg-neutral-600/60 md:min-h-[300px] shadow-xl shadow-neutral-950/25">
       <NoteItemContent title={title} body={body} createdAt={createdAt} />
       <NoteItemAction
         id={id}

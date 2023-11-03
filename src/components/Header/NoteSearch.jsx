@@ -12,8 +12,8 @@ class NoteSearch extends React.Component {
       this.onTitleQueryChangeEventHandler.bind(this);
   }
 
-  componentDidUpdate(prevProps, prevState){
-    if (this.state.titleQuery !== prevState.titleQuery){
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.titleQuery !== prevState.titleQuery) {
       this.props.searchNote(this.state);
     }
   }
@@ -29,8 +29,9 @@ class NoteSearch extends React.Component {
   render() {
     return (
       <input
+        className="text-sm leading-6 text-slate-100 rounded-xs shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 hover:bg-neutral-700/50 placeholder:text-zinc-400/50 m-0 ring-cyan-500 focus:ring rounded bg-neutral-700/40 border border-neutral-400 md:w-1/5"
         type="text"
-        placeholder="Search note title"
+        placeholder="Cari judul catatan..."
         value={this.state.titleQuery}
         onChange={this.onTitleQueryChangeEventHandler}
       />

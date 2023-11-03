@@ -2,10 +2,10 @@ import React from "react";
 import NoteItem from "./Item/NoteItem";
 
 function NoteList({ notes, onDelete, onArchive }) {
-  return (
-    <div className="notes-list">
-      {notes.length > 0 ? (
-        notes.map((note) => (
+  if (notes.length > 0) {
+    return (
+      <div className="grid gap-4 note-list">
+        {notes.map((note) => (
           <NoteItem
             key={note.id}
             id={note.id}
@@ -13,12 +13,10 @@ function NoteList({ notes, onDelete, onArchive }) {
             onArchive={onArchive}
             {...note}
           />
-        ))
-      ) : (
-        <div>Tidak Ada Catatan</div>
-      )}
-    </div>
-  );
+        ))}
+      </div>
+    );
+  } else return <div className="flex justify-center bg-neutral-700/30 text-neutral-400 p-8 rounded-md">Tidak Ada Catatan</div>;
 }
 
 export default NoteList;

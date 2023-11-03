@@ -39,16 +39,16 @@ class NoteInput extends React.Component {
 
   render() {
     return (
-      <div className="note-input">
-        <h2>Buat Catatan</h2>
-        <form onSubmit={this.onSubmitEventHandler}>
+      <div className="flex flex-col gap-4 lg:w-3/5 w-full md:w-3/4 md:m-auto">
+        <h2 className="text-2xl font-medium">Buat Catatan</h2>
+        <form onSubmit={this.onSubmitEventHandler} className="flex flex-col gap-3">
           <NoteTitleCharCount count={this.state.count} />
           <input
             type="text"
             placeholder="Masukkan judul"
             value={this.state.title}
             onChange={this.onTitleChangeEventHandler}
-            className="note-input__title"
+            className="text-s leading-6 text-slate-100 rounded-xs ring-cyan-500 focus:ring shadow-sm py-2 px-3 placeholder:text-zinc-400/50 m-0 rounded bg-neutral-700/40 border border-neutral-400 "
             required
           />
           <textarea
@@ -56,11 +56,11 @@ class NoteInput extends React.Component {
             value={this.state.body}
             onChange={this.onBodyChangeEventHandler}
             cols="30"
-            rows="10"
-            className="note-input__body resize-none"
+            rows="6"
+            className="text-s leading-6 text-slate-100 rounded-xs ring-cyan-500 focus:ring shadow-sm py-2 px-3 placeholder:text-zinc-400/50 m-0 rounded bg-neutral-700/40 border border-neutral-400 resize-none"
             required
           ></textarea>
-          <button type="submit">Tambah Catatan</button>
+          <button type="submit" className="bg-cyan-500 py-2 rounded-md font-medium shadow-md hover:bg-cyan-500/90 focus:bg-cyan-500/80">Tambah Catatan</button>
         </form>
       </div>
     );

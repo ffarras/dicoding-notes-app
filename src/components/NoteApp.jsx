@@ -54,7 +54,7 @@ class NoteApp extends React.Component {
 
   render() {
     return (
-      <section className="note-app">
+      <section className="flex flex-col items-center">
         <NoteAppHeader searchNote={this.onSearchHandler} />
         <NoteAppBody
           notes={this.state.notes}
