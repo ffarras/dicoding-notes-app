@@ -1,5 +1,6 @@
 {
   "name": "my-personal-notes",
+  "homepage": "https://ffarras.github.io/dicoding-notes-app/",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "preview": "vite preview --port 8080"
+    "preview": "vite preview --port 8080",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.0.0",
@@ -16,6 +19,7 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.16",
+    "gh-pages": "^6.0.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "vite": "^4.3.9"
