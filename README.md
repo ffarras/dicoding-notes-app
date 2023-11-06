@@ -1,5 +1,7 @@
 # dicoding-notes-app
-Final Project: Build a notes application using React and Tailwind
+Final Project: Build a notes application using React and Tailwind. View project at https://ffarras.github.io/dicoding-notes-app/
+
+![image](https://github.com/ffarras/dicoding-notes-app/assets/72778266/485176cc-7f8e-4278-9e50-491a52640957)
 
 Features:
 1. Display Notes: View a list of notes using state management and array mapping.
